@@ -27,7 +27,7 @@ export const Rating = ({ isEditable = false, rating, setRating, className, ...pr
 				})}
 				onMouseEnter={() => changeDisplay(i + 1)}
 				onMouseLeave={() => changeDisplay(rating)}
-				onclick={() => onClick(i + 1)}
+				onClick={() => onClick(i + 1)}
 				tabIndex={isEditable ? 0 : -1}
 				onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(i + 1, e)}
 			/>

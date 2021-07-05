@@ -1,8 +1,10 @@
-import { Button, P, Rating, Tag } from '../components'
+import { Button, HTag, P, Rating, Tag } from '../components'
 import { withLayout } from '../Layout/Layout'
 import { GetStaticProps } from 'next'
 import axios from 'axios'
 import { MenuItem } from '../interfaces/menu.interface'
+import styles from '../components/Button/Button.module.css'
+import ArrowIcon from '../components/Button/arrow.svg'
 
 interface HomeProps extends Record<string, unknown> {
 	menu: MenuItem[]
@@ -12,14 +14,22 @@ interface HomeProps extends Record<string, unknown> {
 function Home({ menu }: HomeProps): JSX.Element {
 	return (
 		<>
-			<Button arrow={'down'} appearance={'primary'}>Кнопка</Button>
-			<Button appearance={'ghost'}>Кнопка</Button>
-			<P size="l">dsfsdsf</P>
-			<P size="m">dsfsdsf</P>
-			<P size="s">dsfsdsf</P>
-			<Tag color="grey">тег</Tag>
-			<Rating rating={4}/>
-			<Rating rating={0} isEditable/>
+			{/*<Button arrow={'down'} appearance={'primary'}>Кнопка</Button>*/}
+			{/*<Button appearance={'primary'}>Кнопка</Button>*/}
+			{/*<Button appearance={'ghost'}>Кнопка</Button>*/}
+			{/*<Button appearance={'primary'} arrow={'right'}>Кнопка</Button>*/}
+			{/*<Button appearance={'primary'} arrow={'down'}>Кнопка</Button>*/}
+			{/*<P size="l">dsfsdsf</P>*/}
+			{/*<P size="m">dsfsdsf</P>*/}
+			{/*<P size="s">dsfsdsf</P>*/}
+			{/*<Tag color="grey">тег</Tag>*/}
+			{/*<Rating rating={1}/>*/}
+			{/*<Rating rating={2}/>*/}
+			{/*<Rating rating={3}/>*/}
+			{/*<Rating rating={0} isEditable/>*/}
+			{/*<HTag tag={'h1'}>Head</HTag>*/}
+			{/*<HTag tag={'h2'}>Head</HTag>*/}
+			{/*<HTag tag={'h3'}>Head</HTag>*/}
 		</>
 	)
 }

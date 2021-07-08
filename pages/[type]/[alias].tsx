@@ -5,23 +5,26 @@ import {ParsedUrlQuery} from 'querystring'
 import {ProductModel} from '../../interfaces/product.interface'
 import {withLayout} from '../../Layout/Layout'
 import {MenuItem} from '../../interfaces/menu.interface'
+import {TopPageComponent} from "../../page-components";
 
 const firstCategory = 0
 
-interface CourseProps extends Record<string, unknown> {
+interface TopPageProps extends Record<string, unknown> {
     menu: MenuItem[]
     firstCategory: number
     page: TopPageModel
     products: ProductModel[]
 }
 
-function Course({menu, page, products}: CourseProps): JSX.Element {
-    return (
-        <div>{products && products.length}</div>
-    )
+function TopPage({firstCategory, page, products}: TopPageProps): JSX.Element {
+    return <TopPageComponent
+        firstCategory={firstCategory}
+        page={page}
+        products={products}
+    />
 }
 
-export default withLayout(Course)
+export default withLayout(TopPage)
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
@@ -34,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-export const getStaticProps: GetStaticProps<CourseProps> = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<TopPageProps> = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
     if (!params) {
         return {
             notFound: true,

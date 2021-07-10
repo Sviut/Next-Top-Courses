@@ -25,7 +25,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <Tag color='red' size='m'>hh.ru</Tag>
             </div>
 
-            {firstCategory === TopLevelCategory.Courses && <HhDataCards {...page.hh}/>}
+            {firstCategory === TopLevelCategory.Courses && page.hh && <HhDataCards {...page.hh}/>}
         </div>
     )
 }

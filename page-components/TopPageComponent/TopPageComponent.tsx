@@ -1,6 +1,6 @@
 import {TopLevelCategory, TopPageModel} from "../../interfaces/topPage.interface";
 import {ProductModel} from "../../interfaces/product.interface";
-import {Card, HhDataCards, HTag, Tag} from "../../components";
+import {HhDataCards, HTag, Tag} from "../../components";
 import styles from './TopPageComponent.module.css'
 
 export interface TopPageComponentProps {

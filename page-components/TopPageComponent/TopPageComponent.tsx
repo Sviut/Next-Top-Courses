@@ -1,6 +1,6 @@
 import {TopLevelCategory, TopPageModel} from "../../interfaces/topPage.interface";
 import {ProductModel} from "../../interfaces/product.interface";
-import {HhDataCards, HTag, Tag} from "../../components";
+import {Advantages, HhDataCards, HTag, P, Tag} from "../../components";
 import styles from './TopPageComponent.module.css'
 
 export interface TopPageComponentProps {
@@ -26,6 +26,14 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
             </div>
 
             {firstCategory === TopLevelCategory.Courses && page.hh && <HhDataCards {...page.hh}/>}
+            {page.advantages && page.advantages.length > 0 && <>
+                <HTag tag={'h2'}>Преимущества</HTag>
+                <Advantages advantages={page.advantages}/>
+            </>}
+
+            {page.seoText && <P>{page.seoText}</P>}
+            <HTag tag={'h2'}>Получаемые навыки</HTag>
+            {page.tags.map(t => <Tag key={t} color='primary'>{t}</Tag>)}
         </div>
     )
 }

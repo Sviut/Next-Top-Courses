@@ -1,6 +1,6 @@
 import {TopLevelCategory, TopPageModel} from "../../interfaces/topPage.interface";
 import {ProductModel} from "../../interfaces/product.interface";
-import {Advantages, HhDataCards, HTag, P, Tag} from "../../components";
+import {Advantages, HhDataCards, HTag, Tag} from "../../components";
 import styles from './TopPageComponent.module.css'
 
 export interface TopPageComponentProps {
@@ -31,7 +31,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <Advantages advantages={page.advantages}/>
             </>}
 
-            {page.seoText && <P>{page.seoText}</P>}
+            {page.seoText && <div className={styles.seo} dangerouslySetInnerHTML={{__html: page.seoText}}/>}
             <HTag tag={'h2'}>Получаемые навыки</HTag>
             {page.tags.map(t => <Tag key={t} color='primary'>{t}</Tag>)}
         </div>

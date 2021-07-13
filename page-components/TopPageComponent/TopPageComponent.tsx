@@ -1,6 +1,6 @@
 import {TopLevelCategory, TopPageModel} from "../../interfaces/topPage.interface";
 import {ProductModel} from "../../interfaces/product.interface";
-import {Advantages, HhDataCards, HTag, Tag} from "../../components";
+import {Advantages, HhDataCards, HTag, Sort, SortEnum, Tag} from "../../components";
 import styles from './TopPageComponent.module.css'
 
 export interface TopPageComponentProps {
@@ -15,7 +15,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
             <div className={styles.title}>
                 <HTag tag={'h1'}>{page.title}</HTag>
                 {products && <Tag color={'grey'}>{products.length}</Tag>}
-                <span>Сортировка</span>
+                <Sort sort={SortEnum.Rating} setSort={() => true}/>
             </div>
             <div>
                 {products && products.map(p => (<div key={p._id}>{p.title}</div>))}

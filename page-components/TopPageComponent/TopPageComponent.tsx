@@ -1,6 +1,6 @@
 import {TopLevelCategory, TopPageModel} from "../../interfaces/topPage.interface";
 import {ProductModel} from "../../interfaces/product.interface";
-import {Advantages, HhDataCards, HTag, Sort, SortEnum, Tag} from "../../components";
+import {Advantages, HhDataCards, HTag, Product, Sort, SortEnum, Tag} from "../../components";
 import styles from './TopPageComponent.module.css'
 import {sortReducer} from "./sort.reducer";
 import {useReducer} from "react";
@@ -24,10 +24,9 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <HTag tag={'h1'}>{page.title}</HTag>
                 {products && <Tag color={'grey'}>{products.length}</Tag>}
                 <Sort sort={sort} setSort={setSort}/>
-                {sort}
             </div>
             <div>
-                {sortedProducts && sortedProducts.map(p => (<div key={p._id}>{p.title}</div>))}
+                {sortedProducts && sortedProducts.map(product => (<Product key={product._id} product={product}/>))}
             </div>
             <div className={styles.hhTitle}>
                 <HTag tag='h2'>Вакансии - {page.category}</HTag>

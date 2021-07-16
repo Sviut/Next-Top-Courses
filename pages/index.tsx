@@ -1,4 +1,4 @@
-import {Button, HTag, P, Rating, Tag} from '../components'
+import {Button, HTag, Input, P, Rating, Tag, Textarea} from '../components'
 import {withLayout} from '../Layout/Layout'
 import {GetStaticProps} from 'next'
 import axios from 'axios'
@@ -30,6 +30,8 @@ function Home({menu}: HomeProps): JSX.Element {
             {/*<HTag tag={'h1'}>Head</HTag>*/}
             {/*<HTag tag={'h2'}>Head</HTag>*/}
             {/*<HTag tag={'h3'}>Head</HTag>*/}
+            <Input placeholder="test"/>
+            <Textarea placeholder="test"/>
         </>
     )
 }
